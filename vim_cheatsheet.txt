@@ -1,0 +1,160 @@
+# +++ Vim Cheat Sheet +++
+
+#content:
+  modes, movement, markers, folding, find and replace, commands,commands range,
+  buffers, macros, scrolling, window management, tab management, settings,
+  completion, vimrc
+
+// TODO jump List
+#modes
+  i,I,a,A,o,O,... - Insert
+  : - Command
+  v,V - Visual
+  ctrl-v - Block select
+
+#movement
+  0,^,$ - goto start, fist non-whitspace-char, end of line
+  N| - move to Nth column of line
+  H,M,L - first, middle, last line of screen  
+  % - goto matching bracket
+  (,) - goto start, end of sentence
+  {,} - goto start, end of paragraph
+  [,] - goto start, end of function ???
+  `` - jump to last mark ??? what does this mean exactly
+  `. - jump to line last edited
+
+#markers
+  ma-z - set mark to a-z in file
+  'a-z - jump to mark at shortcut
+  mA-Z - set mark to A-Z across files
+  'A-Z - jump to mark at shortcut
+
+#folding
+  zf - folds in range
+  zo - open fold
+  zR - open all folds
+  zc - close a fold
+  zM - close all folds
+  zd - delte a fold 
+  zE - delete all folds
+  :mkview save folds
+  :loadview apply saved folds
+
+#find and replace
+  f - find character foreward move on character
+  F - find character backward move on character
+  t - find character foreward move till character
+  T - find character backward move till character
+  / - find pattern search foreward
+  ? - find pattern search backward
+    \c - ignore case
+  * - find next WORD under cusor
+  # - find previous WORD under cusor
+  ;,, - next character or previous character
+  n,N - next pattern in or against search direction
+  :s/old/new - find and replace old with new
+    /g - globally (line, selection, file)
+    /c - confirm  
+    :%s - entire file
+    :n,ms - from line n to line m
+
+#commands
+  :w - write file
+  :e - open file
+  :q - quit window/vim
+  :r file - insert file
+  :! - execute shell command
+  :r!cmd - insert output of cmd
+  :sh - span shell
+  :mkview save folds
+  :loadview apply saved folds
+  :buffers - show buffers
+  :registers - show registers
+
+#commands range
+  %cmd - file
+  x:y cmd - line range
+  cmd'M - until mark including
+  cmd`M - untli mark excluding
+  :g/pattern/cmd - on pattern
+  cmd/pattern - till pattern foreward
+  cmd?pattern - till oattern backward
+
+#buffers
+  "n - buffer n e.g. "2p (paste from buffer 2); "ayw (yank word into buffer a)
+  "A-Z - append to buffer a-z
+  :registers - show registers
+#macros
+  qq - start recording macro into q buffer
+  q - stop recording macro
+  @q - execute macro from buffer q
+  :normal @q - play macro q over visual selection
+
+#scrolling
+  zt - current line to top 
+  zz - current line to middle
+  zb - current line to bottom 
+  ctrl-f - scroll up page
+  ctrl-u - scroll up half page
+  ctrl-e - scroll up line
+  ctrl-f - scroll down page
+  ctrl-d - scroll down half screen
+  ctrl-y - scroll down line
+
+#window management
+  ctrl-w s; :sp - split window horizontally
+  ctrl-w v; :vs - split window verically
+  ctrl-w filename - split window and open file in it
+  ctrl-w w; - toggle active window clockwise
+  ctrl-w h,j,k,l - goto window (left,down,up,right)
+  ctrl-w n - create new empty window
+  ctrl-w = - make windows equally high and wide unless otherwise specified
+  ctrl-w r - rotate window
+  ctrl-w N-; :res -N - decrease window height by N 
+  ctrl-w N+; :res +N - increase window height by N 
+  :vertical res -N - decrease window width by N
+  :vertical res +N - increase window width by N
+
+#tab management
+  :tabnew - create new tab
+  :tabfind file - opens file in new tab
+  :tabclose - close tab
+  :tabclose N - close Nth tab
+  :tabonly - close all tabs but the current one
+  :tabn - move to next tab
+  :tabp - move to previous tab
+  :tabl - move to left ??? // TODO find out what this actually does
+  :tabm N - move current tab to position N
+  :tabfirst - goto fist tab
+  :tablast - take a f*ing quess!
+  gt - next tab
+  gT - prev tab
+
+#settings:
+  __non permanent:command without set
+  // TODO general diff between :set command and :command
+  :set number; :set nu - show linenumbers
+  :set relativenumber; :set rnu - show relative linenumbers
+  :set noerrorbells - disables errorbells
+  :set ruler - displays line and column at bottom of window
+  :set tabstop=N - sets tabwidth to N
+  :set shiftwidth=N - sets auto-indent to N
+  :set expandtab - replaces tabs with spaces
+  :set showmode - shows vim-mode
+  :set colorcolumn=N - show line at width N
+  :set nohlsearch - searches dont get highlighted
+  :set bg=dark - sets syntax highlighting according to bg
+  :colors <theme> - sets colorshema 
+  :syntax on - activates syntax highlighting
+
+#completion (insert mode)
+  ctrl c - completes current word
+  ctrl x - brings up lots of completion options // TODO whats what!
+  ctrl-p - brings up completion list
+  ctrl-n - next word in completion list
+  ctrl-x ctl-l - completes line 
+
+#vimrc
+  __leave out the : 
+  " - comment
+
