@@ -1,0 +1,169 @@
+# +++ UNIX Commands Cheat Sheet +++
+
+#content:
+  batch, bg, cc, cal, cat, cd, chgrp, chmod, chown, cksum, cmp, compress, cp,
+  crontab, csplit, curl, date, dd, df, diff, echo, fg, file, find, fuser, grep,
+  hash, join, kill, less, link, ln, logname, ls, man, mkdir, more, mv, nc, 
+  pwd, rm, rmdir, sh, tar, tee, touch, tput, tty, uname, uncompress, uniq, 
+  vi, vim
+
+#overview 
+  batch - schedule commands to be executed - process management
+  bg - run jobs in the background - process management
+  cc - compile C - C programming
+  cal - prints a calender - misc
+  cat - concatenate and print files - Filesystem
+  cd - change directory - filesystem
+  chgrp - change the file group ownership - Filesystem
+  chmod - change the file permissions - Filesystem
+  chown - change the file ownership - Filesystem
+  cksum - write file checksums and sizes - Filesystem
+  cmp - compare two files, see diff - Filesystem
+  compress - compress data - Filesystem
+  cp - copy files - Filesystem
+  crontab - time based job scheduler - misc
+  csplit - split files based on context - Text processing
+  curl - transfer data from server, supports 
+  date - display date and time - misc
+  dd - convert and copy a file - Filesystem
+  df - report free disk space - Filesystem
+  diff - compare two files, see cmp - Text processing
+  echo - write arguments as standard output - Shell programming
+  fg - run jobs in the foreground - process management 
+  file - determine the file type - Filesystem
+  find - find files - Filesystem
+  fuser - list process IDs of all processes that have files open - process m.
+  grep - search text for a pattern - misc
+  hash - hash database access method - misc
+  join - merges two text file based on common field - Text processing
+  kill - terminate or signal processes - processes management
+  less - // TODO
+  link - create a hard link to a file - Filesystem
+  ln - link files - Filesystem
+  logname - return the users login name - misc
+  ls - list contents of directory - Filesystem
+  man - display system documentation - misc
+  mkdir - create directory - Filesystem
+  more - display files page by page - text processing 
+  mv - move files, rename files - Filesystem
+  pwd - print the current working directory - Filesystem
+  rm - remove directory entries - Filesystem
+  rmdir - remove empty directories - Filesystem
+  sh - shell - Shell programming
+  tee - duplicates the standartd output - Shell programming
+  touch - change file access and modifikation times - Shell programming
+  tput - change termianl characteristics - misc
+  tty - return users terminal name - misc
+  uname - return system name - misc
+  uncompress - expand compressed data - misc
+  uniq - report or filter out repeated lines in a file - text processing
+  vi - vi text editor - text processing
+  vim - vim text editor - text processing
+
+#chown
+  usage: chown [-fhv] [-R [-H | -L | -P]] owner[:group] file ...
+         chown [-fhv] [-R [-H | -L | -P]] :group file ...
+  -R change ownership recursively
+  -v verbose
+
+  examples
+    change owner of file - chown owner file
+      chown root vim_cheatsheet.txt 
+    change group of a file - chown :group_name file
+    change both owner and group - chown owner_name:group_name file
+    change only if owner is X - chown --from=X new_owner file
+    change group only if group is X - chown --from=:X :new_owner file 
+    copy owner/group from file X file Y - chown --reference=X Y  
+    change owner/group recursively - -R
+
+#curl
+  usage: curl URL
+   // TODO get more info    
+   example curl bdn.de/file/vimrc
+
+#grep
+  grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
+          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
+          [--null] [pattern] [file ...]
+    -A N - print N number of lines after each match, see also -B -C
+    -a - treat all files as ASCII text
+    -B N - print N number of lines before each match, see also -A -C 
+    -C N -  print N number of lines before and after each match, see also -A -C
+    -b - diplay clolumn number (byte offset)
+    -c - count number of matches
+    -e - search for multiple patterns 
+    -i - search case insensitive
+    -l - diplay only the filenames that contain matching pattern
+    -n - display line numbers
+    -o - display only the matched patterns, not the entire line
+    -r - search recursively
+    -v - search lines NOT matching pattern
+    -w - search for whole word not substring
+    
+  examples
+    search for string in file - grep "pattern" filename
+      grep "pwd" unix_command_cheatsheet.txt
+    search for string in multiple files - grep "pattern" file_pattern
+      grep "move" unix_*
+    search case insensitive - grep -i "pattern" file
+      grep -i "MOVE" unix_command_cheatsheet.txt
+    match regular expressions in file - grep "regex" file
+      grep "match.*in file" unix_command_cheatsheet.txt
+      . = any character, * = 0, 1, n matches
+    invert match - grep -v "pattern" filename
+      grep -v "grep" unix_command_cheatsheet.txt
+    display only filenames - grep -l "pattern" file*
+      grep -l "move" unix_*
+     
+#ls
+  -1 - Force output to one entry per line; Standard if output not to terminal
+  -A - Lists all entries except . && ...; always set for su
+  -a - includes hidden entries (.); always set for su
+  -C - force multi-column output; standard if output is to terminal
+  -c - use time-last-changed for sorting
+  -d - diretories are not searched recursively
+  -f - output is not sorted; turns on -a option
+  -G - enables colorized output
+  -h - with -l it uses unit suffixes for filesize
+  -i - print file-serialnumber
+  -k - if -s is specified print filesize in kb not blocks
+  -L - follow all symbolic links and list the references; calls -P option
+  -l - list in long format; 
+  -m - stream output, all files are seperated by commas
+  -r - reverse sorting order
+  -S - sort files by size
+  -t - sort by time modified
+  -u - sort by time last accsessed   
+
+#netcat #nc
+  server mode usage: nc -l port_number
+  client mode usage: nc ip_server port_number
+  
+  -w N - timeout after N seconds; do not use with server -l flag
+  -4 - use ipv4
+  -6 - use ipv6
+  -d - Client: disable stdin
+  -k - Server: stay up after client disconnects
+  -q N - Client: stay up after EOF for N seconds
+  -u - Server and Client: use UDP protocoll
+  
+  examples
+    nc -l 1234 > file_name
+    cat file_name | nc -l localhost 1234
+    // TODO transmitt files, are there extra options ???
+
+#tar
+  -c - Create archive
+  -C dir - change to dir before processing files
+  -f - specify filename of archive
+  -v - verbose
+  -x - extract
+  -z - use gzip 
+  --exclude - exclude diretorie or file; accepts patterns
+
+  examples:
+    compress file or directory - tar -czvf archive_name /path/to/dir-or-file
+    compress multiple files or diretories - tar -czvf archive /dir1 /dir2
+    extract archive - tar -xzvf archive_name -C /path/to/directory
+ 

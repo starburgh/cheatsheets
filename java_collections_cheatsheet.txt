@@ -1,0 +1,43 @@
++++ Java Collecetions
+
+#content
+
+#basic syntax
+  basic type <Obj> = new interface<Obj> ???
+
+#basic types
+  Lists
+  Sets
+  Maps
+
+#Lists
+  store list of objects
+  duplicates
+  keeps ordering
+  elements are indexed with an int
+  checking if an item is in list is slow (O = n)
+  lookup by index is fast (O = 1)
+  can be sorted (O = n logn)
+ 
+#Sets
+  no duplicates
+  not indexed
+  checking if an item is in list is fast (O = 1 ||  log n)
+  objects need to implement hashCode() and equals()
+  order is not preserved / never established 
+
+#Maps
+  key-value pairs
+  retrieving by value is fast (O = 1 || O = log n)
+  iterating over map values is slow
+  objects  as keys need to implement hashCode() and equals() 
+  
+#Subtypes
+  ArrayLists - dynamic Arrays, int index
+  LinkedList - dynamic Arrays, no index
+  HashSet
+  TreeSet - stores items in natural order, must implement Comparable
+  LinkedHashSet
+  HashMap
+  TreeMap - stores items natural order, must implement Comparable
+  LinkedHashMap - keys remain in order
