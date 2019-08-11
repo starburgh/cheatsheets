@@ -1,0 +1,11 @@
+git clone <url>
+
+-git remote -v
+
+git branch -a
+
+git branch <branch_name>
+
+git checkout <branch_name>
+
+
