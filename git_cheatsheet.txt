@@ -6,6 +6,6 @@ git branch -a
 
 git branch <branch_name>
 
-git checkout <branch_name>
+git Checkout <branch_name>
 
 
